@@ -3,16 +3,16 @@
 
         @php
             $navItems = [
-                ['name' => 'Startseite', 'url' => "test"],
-                ['name' => 'Über mich', 'url' => "test"],
-                ['name' => 'Projekte', 'url' => "test"],
-                ['name' => 'Statistiken', 'url' => "test"],
-                ['name' => 'Kontakt', 'url' => "test"],
+                ['name' => 'home', 'url' => 'index'],
+                ['name' => 'about', 'url' => 'index'],
+                ['name' => 'projects', 'url' => 'index'],
+                ['name' => 'statistics', 'url' => 'index'],
+                ['name' => 'contact', 'url' => 'index'],
             ];
         @endphp
 
         @foreach($navItems as $arr=>$link)
-            <a class="navLink text-sm font-bold" href="{{ $link['url'] }}">{{ strtoupper($link['name']) }}</a>
+            <a class="navLink text-sm font-bold" href="{{ $link['url'] }}">{{ strtoupper(__('navigation.' . $link['name'])) }}</a>
         @endforeach
     </div>
 
