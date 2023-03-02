@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+* {
+    @apply m-0 p-0;
+}
+
+body {
+    @apply bg-blue-900 text-white;
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url(/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vw;
+}
+
+header {
+
+    background-size: cover;
+    height: 60vh;
+}
+
+nav.navigation {
+    @apply p-2 fixed
+}
+
+nav.navigation .navLink {
+    @apply p-5;
+    transition: .2s;
+}
+
+nav.navigation .navLink:hover {
+    @apply text-blue-600 underline underline-offset-4 decoration-4 decoration-red-800;
+    transition: .2s;
+}
+
+header .content .subcontent i {
+    @apply text-2xl mx-2;
+}
