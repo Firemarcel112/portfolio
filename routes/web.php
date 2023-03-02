@@ -20,3 +20,8 @@
         return view('home');
     })->name('home');;
 
+    Route::get('/{locale}', function(string $locale) {
+        App::setLocale($locale);
+        return view('home');
+    })->name('home.debug');
+
