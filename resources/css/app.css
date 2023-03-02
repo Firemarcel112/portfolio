@@ -11,9 +11,7 @@ body {
 }
 
 body {
-    background-image: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url(/background.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(/background.jpg) no-repeat fixed;
     height: 100vw;
 }
 
@@ -28,15 +26,11 @@ nav.navigation {
 }
 
 nav.navigation .navLink {
-    @apply p-5;
+    @apply p-5
+    hover:text-blue-600 hover:underline hover:underline-offset-4 hover:decoration-4 hover:decoration-red-800;
     transition: .2s;
 }
 
-nav.navigation .navLink:hover {
-    @apply text-blue-600 underline underline-offset-4 decoration-4 decoration-red-800;
-    transition: .2s;
-}
-
-header .content .subcontent i {
+header .content .subcontent a {
     @apply text-2xl mx-2;
 }
