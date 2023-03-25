@@ -1,5 +1,6 @@
 <?php
 
+    use App\Http\Controllers\Curl;
     use Illuminate\Support\Facades\App;
     use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,13 @@
     Route::get('/', function () {
         $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
         App::setLocale($lang);
-        return view('home');
+        $curl = new Curl();
+        $curl->setToken(env('GITHUB_TOKEN'));
+        $curl->setHeaders('Accept: application/vnd.github+json');
+        $curl->setHeaders("Authorization: Bearer {$curl->getToken()}");
+        $curl->setHeaders('X-Github-Api-Version: 2022-11-28');
+        $fetch = $curl->get('https://api.github.com/repositories');
+        return view('home', compact('fetch'));
     })->name('home');;
 
     Route::get('/{locale}', function(string $locale) {
@@ -25,3 +32,8 @@
         return view('home');
     })->name('home.debug');
 
+    Route::prefix('projects')->group(function() {
+        Route::get('/{projectNr}', function() {
+            return view('home');
+        })->name('project.details');
+    });
